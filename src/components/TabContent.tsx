@@ -1,47 +1,113 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { styled } from "@storybook/theming";
-import { H1, Link, Code } from "@storybook/components";
+import { UL, LI, A } from "@storybook/components";
+import { marked } from "marked";
 
-const TabWrapper = styled.div(({ theme }) => ({
-  background: theme.background.content,
-  padding: "4rem 20px",
-  minHeight: "100vh",
-  boxSizing: "border-box",
-}));
+const TabWrapper = styled.div`
+  background: ${({ theme }) => theme.background.content};
+  min-height: 100vh;
+  box-sizing: border-box;
+`;
 
-const TabInner = styled.div({
-  maxWidth: 768,
-  marginLeft: "auto",
-  marginRight: "auto",
-});
+const TabInner = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  gap: 2rem;
+
+  @media (min-width: 960px) {
+    flex-direction: row;
+    gap: 5rem;
+  }
+`;
+
+const TabAside = styled.aside`
+  flex-shrink: 0;
+  max-height: 40vh;
+  overflow-y: auto;
+  padding: 2rem;
+  padding-bottom: 0;
+  border-bottom: 2px solid ${({ theme }) => theme.appBorderColor};
+
+  ul {
+    margin-top: 0;
+    padding-left: 1rem;
+  }
+
+  @media (min-width: 960px) {
+    position: fixed;
+    top: ${({ theme }) => `${theme.layoutMargin}px`};
+    bottom: 0;
+    left: 0;
+    width: 15rem;
+    max-height: 100vh;
+    margin-top: 4rem;
+    padding-top: 0;
+    padding-right: 0;
+    border-right: 2px solid ${({ theme }) => theme.appBorderColor};
+  }
+`;
+
+const TabMain = styled.main`
+  padding: 2rem;
+  padding-top: 0;
+
+  @media (min-width: 960px) {
+    padding-top: 2rem;
+    padding-right: 0;
+    margin-left: 15rem;
+  }
+`;
 
 interface TabContentProps {
-  code: string;
+  markdown: string;
 }
 
-export const TabContent: React.FC<TabContentProps> = ({ code }) => (
-  <TabWrapper>
-    <TabInner>
-      <H1>My Addon</H1>
-      <p>
-        Your addon can create a custom tab in Storybook. For example, the
-        official{" "}
-        <Link href="https://storybook.js.org/docs/react/writing-docs/introduction">
-          @storybook/addon-docs
-        </Link>{" "}
-        uses this pattern.
-      </p>
-      <p>
-        You have full control over what content is being rendered here. You can
-        use components from{" "}
-        <Link href="https://github.com/storybookjs/storybook/tree/next/code/ui/components">
-          @storybook/components
-        </Link>{" "}
-        to match the look and feel of Storybook, for example the{" "}
-        <code>&lt;Code /&gt;</code> component below. Or build a completely
-        custom UI.
-      </p>
-      <Code>{code}</Code>
-    </TabInner>
-  </TabWrapper>
-);
+function findHeadingsWithSemVer(htmlString: string) {
+  const parser = new DOMParser();
+  const dom = parser.parseFromString(htmlString, "text/html");
+  const headings = dom.querySelectorAll("h1, h2, h3, h4, h5, h6");
+  const result = [];
+
+  for (let i = 0; i < headings.length; i++) {
+    const heading = headings[i];
+    const text = heading.textContent;
+    const matches = text.match(/\d+\.\d+\.\d+/);
+
+    if (matches) {
+      const id = heading.getAttribute("id");
+      const label = text.trim();
+      result.push({ id, label });
+    }
+  }
+
+  return result;
+}
+
+export const TabContent: React.FC<TabContentProps> = ({ markdown }) => {
+  const html = useMemo(() => marked(markdown), [markdown]);
+  const navigationItems = useMemo(() => findHeadingsWithSemVer(html), [html]);
+
+  return (
+    <TabWrapper>
+      <TabInner>
+        <TabAside>
+          <UL>
+            {navigationItems.map(({ label, id }) => (
+              <LI key={id}>
+                <A href={`#${id}`}>{label}</A>
+              </LI>
+            ))}
+          </UL>
+        </TabAside>
+        <TabMain
+          dangerouslySetInnerHTML={{
+            __html: html,
+          }}
+        />
+      </TabInner>
+    </TabWrapper>
+  );
+};

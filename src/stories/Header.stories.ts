@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
+
 import { Header } from "./Header";
+import CHANGELOG from "./CHANGELOG.md";
 
 const meta: Meta<typeof Header> = {
   title: "Example/Header",
@@ -7,6 +9,7 @@ const meta: Meta<typeof Header> = {
   parameters: {
     // More on Story layout: https://storybook.js.org/docs/react/configure/story-layout
     layout: "fullscreen",
+    changelog: CHANGELOG,
   },
 };
 
