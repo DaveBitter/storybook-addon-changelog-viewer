@@ -7,8 +7,7 @@
     "changelog",
     "markdown",
     "viewer",
-    "docs",
-    "storybook-addons"
+    "docs"
   ],
   "repository": {
     "type": "git",
@@ -52,7 +51,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "run-p build:watch 'storybook --quiet'",
     "prerelease": "zx scripts/prepublish-checks.mjs",
-    "release": "yarn build && auto shipit",
+    "release": "yarn build && && yarn copy:readme && auto shipit",
     "eject-ts": "zx scripts/eject-typescript.mjs",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
