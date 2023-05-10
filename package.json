@@ -1,6 +1,6 @@
 {
   "name": "storybook-addon-changelog-viewer",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Show Changelog files in the Storybook UI",
   "keywords": [
     "storybook-addons",
