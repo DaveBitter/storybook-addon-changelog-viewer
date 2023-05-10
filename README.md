@@ -4,7 +4,7 @@ _Show Changelog files in the Storybook UI_ - made with ❤️ by [Dave Bitter](h
 
 > Storybook v7.0.0 or higher is needed to use this addon
 
-`![Storybook UI showing the changelog tab active and displaying a mock changelog](storybook-addon-changelog-viewer-demo.png)
+![Storybook UI showing the changelog tab active and displaying a mock changelog](https://github.com/DaveBitter/storybook-addon-changelog-viewer/raw/main/storybook-addon-changelog-viewer-demo.png)
 
 ## Usage
 

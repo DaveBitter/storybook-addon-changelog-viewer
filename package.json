@@ -51,7 +51,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "run-p build:watch 'storybook --quiet'",
     "prerelease": "zx scripts/prepublish-checks.mjs",
-    "release": "yarn build && && yarn copy:readme && auto shipit",
+    "release": "yarn build && yarn copy:readme && auto shipit",
     "eject-ts": "zx scripts/eject-typescript.mjs",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
@@ -119,7 +119,7 @@
       "preact",
       "react-native"
     ],
-    "icon": "https://github.com/DaveBitter/storybook-addon-changelog-viewer/blob/main/storybook-addon-changelog-viewer.png?raw=true"
+    "icon": "https://raw.githubusercontent.com/DaveBitter/storybook-addon-changelog-viewer/main/storybook-addon-changelog-viewer.png?token=GHSAT0AAAAAACCOWNSXKWW62LEINGQ2X7Z6ZC3WGYQ"
   },
   "dependencies": {
     "marked": "^5.0.1"
