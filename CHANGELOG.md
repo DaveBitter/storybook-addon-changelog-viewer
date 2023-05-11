@@ -1,3 +1,15 @@
+# v0.0.5 (Thu May 11 2023)
+
+#### ⚠️ Pushed to `main`
+
+- fix(globals): remove unneeded globals (dbitter@anwb.nl)
+
+#### Authors: 1
+
+- dbitter@anwb.nl (dbitter@anwb.nl)
+
+---
+
 # v0.0.2 (Wed May 10 2023)
 
 #### ⚠️ Pushed to `main`
