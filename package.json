@@ -47,7 +47,7 @@
     "prebuild": "yarn clean",
     "build": "tsup",
     "build:watch": "yarn build --watch",
-    "copy:readme": "cp README.md dist/README.md",
+    "copy:readme": "cp README.md dist/readme.md",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "run-p build:watch 'storybook --quiet'",
     "prerelease": "zx scripts/prepublish-checks.mjs",
@@ -119,7 +119,7 @@
       "preact",
       "react-native"
     ],
-    "icon": "https://raw.githubusercontent.com/DaveBitter/storybook-addon-changelog-viewer/main/storybook-addon-changelog-viewer.png?token=GHSAT0AAAAAACCOWNSXKWW62LEINGQ2X7Z6ZC3WGYQ"
+    "icon": "https://www.davebitter.com/img/articles/storybook-addon-changelog-viewer.png"
   },
   "dependencies": {
     "marked": "^5.0.1"
