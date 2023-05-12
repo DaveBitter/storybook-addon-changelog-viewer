@@ -1,3 +1,15 @@
+# v0.0.9 (Fri May 12 2023)
+
+#### ⚠️ Pushed to `main`
+
+- Revert "docs(readme): update image" (dbitter@anwb.nl)
+
+#### Authors: 1
+
+- dbitter@anwb.nl (dbitter@anwb.nl)
+
+---
+
 # v0.0.7 (Fri May 12 2023)
 
 #### ⚠️ Pushed to `main`
