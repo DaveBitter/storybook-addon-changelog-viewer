@@ -1,3 +1,15 @@
+# v0.0.7 (Fri May 12 2023)
+
+#### ⚠️ Pushed to `main`
+
+- docs(readme): update image (dbitter@anwb.nl)
+
+#### Authors: 1
+
+- daveybitter@gmail.com (dbitter@anwb.nl)
+
+---
+
 # v0.0.5 (Thu May 11 2023)
 
 #### ⚠️ Pushed to `main`
