@@ -2,6 +2,13 @@ import React, { useMemo } from "react";
 import { styled } from "@storybook/theming";
 import { UL, LI, A } from "@storybook/components";
 import { marked } from "marked";
+// @ts-expect-error
+import { mangle } from "marked-mangle";
+// @ts-expect-error
+import { gfmHeadingId } from "marked-gfm-heading-id";
+
+marked.use(mangle());
+marked.use(gfmHeadingId());
 
 const TabWrapper = styled.div`
   background: ${({ theme }) => theme.background.content};
@@ -87,7 +94,7 @@ function findHeadingsWithSemVer(htmlString: string) {
 }
 
 export const TabContent: React.FC<TabContentProps> = ({ markdown }) => {
-  const html = useMemo(() => marked(markdown), [markdown]);
+  const html = useMemo(() => marked.parse(markdown), [markdown]);
   const navigationItems = useMemo(() => findHeadingsWithSemVer(html), [html]);
 
   return (

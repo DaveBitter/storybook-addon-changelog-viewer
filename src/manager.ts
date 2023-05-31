@@ -14,9 +14,9 @@ addons.register(ADDON_ID, () => {
     type: types.TAB,
     title: "Changelog",
     //👇 Checks the current route for the story
-    route: ({ storyId }) => `/myaddon/${storyId}`,
-    //👇 Shows the Tab UI element in myaddon view mode
-    match: ({ viewMode }) => viewMode === "myaddon",
+    route: ({ storyId }) => `/changelog/${storyId}`,
+    //👇 Shows the Tab UI element in changelog view mode
+    match: ({ viewMode }) => viewMode === "changelog",
     render: Tab,
   });
 });

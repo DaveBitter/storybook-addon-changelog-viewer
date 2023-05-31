@@ -121,6 +121,8 @@
     "icon": "https://raw.githubusercontent.com/DaveBitter/storybook-addon-changelog-viewer/main/storybook-addon-changelog-viewer.png"
   },
   "dependencies": {
-    "marked": "^5.0.1"
+    "marked": "^5.0.1",
+    "marked-gfm-heading-id": "^3.0.3",
+    "marked-mangle": "^1.0.1"
   }
 }
