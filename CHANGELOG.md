@@ -10,6 +10,18 @@
 
 ---
 
+# v0.0.11 (Wed May 31 2023)
+
+#### ⚠️ Pushed to `main`
+
+- feat(addon): resolve deprecation warning and replace "myaddon" with "changelog" (daveybitter@gmail.com)
+
+#### Authors: 1
+
+- dbitter@anwb.nl (daveybitter@gmail.com)
+
+---
+
 # v0.0.9 (Fri May 12 2023)
 
 #### ⚠️ Pushed to `main`
